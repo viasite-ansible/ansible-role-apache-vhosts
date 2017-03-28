@@ -1,0 +1,33 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: Stanislav Popov
+  company: Viasite
+  description: Apache 2.x virtual hosts manage
+  license: MIT
+  min_ansible_version: 1.9
+  platforms:
+    - name: EL
+      versions:
+      - all
+    - name: Debian
+      versions:
+      - all
+    - name: Ubuntu
+      versions:
+      - precise
+      - raring
+      - saucy
+      - trusty
+      - xenial
+    - name: Suse
+      versions:
+      - all
+    - name: Solaris
+      versions:
+      - 11.3
+  galaxy_tags:
+    - web
+
+allow_duplicates: yes

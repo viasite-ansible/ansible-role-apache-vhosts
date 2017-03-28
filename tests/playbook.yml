@@ -1,0 +1,5 @@
+---
+- hosts: all
+  roles:
+    - geerlingguy.apache
+    - ansible-role-apache-vhosts
