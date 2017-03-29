@@ -21,12 +21,6 @@ galaxy_info:
       - saucy
       - trusty
       - xenial
-    - name: Suse
-      versions:
-      - all
-    - name: Solaris
-      versions:
-      - 11.3
   galaxy_tags:
     - web
 

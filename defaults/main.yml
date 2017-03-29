@@ -1,1 +1,11 @@
 ---
+apache_listen_ip: "*"
+apache_listen_port: 80
+apache_restart_state: restarted
+
+apache_vhosts_sites: []
+apache_vhosts_remove_sites: []
+apache_vhosts_template: "vhost.conf.j2"
+
+apache_allow_override: "All"
+apache_options: "-Indexes +FollowSymLinks"

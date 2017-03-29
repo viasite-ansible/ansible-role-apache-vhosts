@@ -20,6 +20,17 @@ This role allow of using geerlingguy.apache other way.
 Other roles "apache-vhosts" that I found doing same that viasite-ansible.site: it too complex.
 
 
+## Features
+- 
+
+
+## Limitations
+- only Debian and Ubuntu
+- no SSL (we confifuring SSL on nginx)
+
+Issues welcome!
+
+
 ## Usage
 
 Before this role you must install apache with geerlingguy.apache role or other way.
