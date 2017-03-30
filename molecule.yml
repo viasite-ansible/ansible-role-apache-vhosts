@@ -1,25 +1,29 @@
 ---
+dependency:
+  name: galaxy
+  requirements_file: tests/requirements.yml
+
 driver:
   name: docker
 docker:
   containers:
-#    - name: ansible-role-apache-vhosts-1404
-#      image: ubuntu
-#      image_version: 14.04
-#      volume_mounts:
-#        - ${MOLECULE_APTPROXY_PATH}:/etc/apt/apt.conf.d/00aptproxy
-#
-#    - name: ansible-role-apache-vhosts-1604
-#      image: ubuntu
-#      image_version: 16.04
-#      volume_mounts:
-#        - ${MOLECULE_APTPROXY_PATH}:/etc/apt/apt.conf.d/00aptproxy
-
-    - name: ansible-role-apache-vhosts-1604
-      image: popstas/ansible-server-base
-      image_version: latest
+    - name: ansible-role-apache-vhosts-1404
+      image: ubuntu
+      image_version: 14.04
       volume_mounts:
         - ${MOLECULE_APTPROXY_PATH}:/etc/apt/apt.conf.d/00aptproxy
+
+    - name: ansible-role-apache-vhosts-1604
+      image: ubuntu
+      image_version: 16.04
+      volume_mounts:
+        - ${MOLECULE_APTPROXY_PATH}:/etc/apt/apt.conf.d/00aptproxy
+
+#    - name: ansible-role-apache-vhosts-1604
+#      image: popstas/ansible-server-base
+#      image_version: latest
+#      volume_mounts:
+#        - ${MOLECULE_APTPROXY_PATH}:/etc/apt/apt.conf.d/00aptproxy
 
 ansible:
   playbook: tests/playbook.yml
@@ -35,4 +39,5 @@ ansible:
         templates:
           template: tests/custom_template.conf.j2
           servername: "other.dev"
+          somevariable: "somevalue"
       apache_vhosts_remove_sites: ['bar']

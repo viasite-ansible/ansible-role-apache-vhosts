@@ -1,3 +1,4 @@
 <VirtualHost {{ apache_listen_ip }}:{{ apache_listen_port }}>
   ServerName {{ item.value.servername }}
+  # {{ item.value.somevariable }}
 </VirtualHost>
