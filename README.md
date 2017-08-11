@@ -1,5 +1,5 @@
 # Ansible Role: Apache vhosts
-[![Build Status](https://travis-ci.org/viasite-ansible/ansible-role-apache-vhosts.svg?branch=master)](https://travis-ci.org/viasite-ansible/ansible-role-apache-vhosts)
+[![Build Status](https://travis-ci.org/pulse-mind/ansible-role-apache-vhosts.svg?branch=master)](https://travis-ci.org/pulse-mind/ansible-role-apache-vhosts)
 
 
 ## Purpose
