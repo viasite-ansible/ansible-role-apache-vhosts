@@ -5,14 +5,14 @@
 
 - name: Remove welcome file
   file: path={{ apache_conf_path }}/conf.d/welcome.conf
-  
+
 - name: Create the directories sites-available and sites-enabled
   file:
     path="{{ apache_conf_path }}/{{ item }}"
-    state=directory  
+    state=directory
   with_items:
     - sites-enabled
-    - sites-available  
+    - sites-available
   notify:
    - restart apache
 
