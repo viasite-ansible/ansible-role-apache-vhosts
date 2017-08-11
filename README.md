@@ -27,7 +27,7 @@ Other roles "apache-vhosts" that I found doing same that viasite-ansible.site: i
 
 
 ## Limitations
-- only Debian and Ubuntu
+- only Debian, Ubuntu and CentOS
 - no SSL (we confifuring SSL on nginx)
 
 Issues welcome!
