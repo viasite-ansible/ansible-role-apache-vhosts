@@ -1,0 +1,54 @@
+---
+
+- name: Copy welcome file
+  copy: remote_src=True src={{ apache_conf_path }}/conf.d/welcome.conf dest={{ apache_conf_path }}/conf.d/welcome.conf.backup
+
+- name: Remove welcome file
+  file: path={{ apache_conf_path }}/conf.d/welcome.conf
+
+- name: Create the directories sites-available and sites-enabled
+  file:
+    path="{{ apache_conf_path }}/{{ item }}"
+    state=directory
+  with_items:
+    - sites-enabled
+    - sites-available
+  notify:
+   - restart apache
+
+- name: Add sites-enabled Include to httpd.conf
+  lineinfile:
+    dest={{ apache_conf_path }}/conf/httpd.conf
+    state=present
+    line='IncludeOptional sites-enabled/*.conf'
+  notify:
+    - restart apache
+
+- name: Create the configurations for sites
+  template:
+    src: "{{ item.value.template | default(apache_vhosts_template) }}"
+    dest: "{{ apache_conf_path }}/sites-available/{{ item.key }}.conf"
+  with_dict: "{{ apache_vhosts_sites }}"
+  when: item.key not in apache_vhosts_remove_sites
+  notify:
+   - restart apache
+
+- name: Create links for sites-enabled
+  file:
+    state: link
+    src: "{{ apache_conf_path }}/sites-available/{{ item.key }}.conf"
+    dest: "{{ apache_conf_path }}/sites-enabled/{{ item.key }}.conf"
+  with_dict: "{{ apache_vhosts_sites }}"
+  when: item.key not in apache_vhosts_remove_sites
+  notify:
+   - restart apache
+
+- name: Remove unwanted sites
+  file:
+    path: "{{ apache_conf_path }}/{{ item[0] }}/{{ item[1] }}.conf"
+    state: absent
+  with_nested:
+    - [ 'sites-enabled', 'sites-available']
+    - "{{ apache_vhosts_remove_sites }}"
+  notify:
+   - restart apache

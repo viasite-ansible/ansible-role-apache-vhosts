@@ -19,11 +19,13 @@ docker:
       volume_mounts:
         - ${MOLECULE_APTPROXY_PATH}:/etc/apt/apt.conf.d/00aptproxy
 
-#    - name: ansible-role-apache-vhosts-1604
-#      image: popstas/ansible-server-base
-#      image_version: latest
-#      volume_mounts:
-#        - ${MOLECULE_APTPROXY_PATH}:/etc/apt/apt.conf.d/00aptproxy
+    - name: ansible-role-apache-vhosts-centos7
+      image: centos/systemd
+      image_version: latest
+      volume_mounts:
+        - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+      privileged: True
+
 
 ansible:
   playbook: tests/playbook.yml

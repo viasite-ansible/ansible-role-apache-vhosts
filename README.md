@@ -1,5 +1,5 @@
 # Ansible Role: Apache vhosts
-[![Build Status](https://travis-ci.org/viasite-ansible/ansible-role-apache-vhosts.svg?branch=master)](https://travis-ci.org/viasite-ansible/ansible-role-apache-vhosts)
+[![Build Status](https://travis-ci.org/pulse-mind/ansible-role-apache-vhosts.svg?branch=master)](https://travis-ci.org/pulse-mind/ansible-role-apache-vhosts)
 
 
 ## Purpose
@@ -27,7 +27,7 @@ Other roles "apache-vhosts" that I found doing same that viasite-ansible.site: i
 
 
 ## Limitations
-- only Debian and Ubuntu
+- only Debian, Ubuntu and CentOS
 - no SSL (we confifuring SSL on nginx)
 
 Issues welcome!
