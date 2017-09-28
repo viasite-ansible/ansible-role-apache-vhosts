@@ -3,7 +3,9 @@
 {# Set up VirtualHosts #}
 {% set vhost = item.value %}
 <VirtualHost {{ apache_listen_ip }}:{{ apache_listen_port }}>
+{% if vhost.servername is defined %}
   ServerName {{ vhost.servername }}
+{% endif %}
 {% if vhost.serveralias is defined %}
   ServerAlias {{ vhost.serveralias }}
 {% endif %}
