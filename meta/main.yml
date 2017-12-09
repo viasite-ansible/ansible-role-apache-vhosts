@@ -6,7 +6,7 @@ galaxy_info:
   company: Viasite
   description: Apache 2.x virtual hosts manage
   license: MIT
-  min_ansible_version: 1.9
+  min_ansible_version: 2.4
   platforms:
     - name: EL
       versions:

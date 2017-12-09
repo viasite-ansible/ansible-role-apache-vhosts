@@ -24,5 +24,5 @@
   tags: skip_ansible_lint
 
 # Configure Apache vhosts.
-- include: "configure-{{ ansible_os_family }}.yml"
+- include_tasks: "configure-{{ ansible_os_family }}.yml"
   static: no
