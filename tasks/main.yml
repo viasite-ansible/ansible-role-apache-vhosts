@@ -25,4 +25,3 @@
 
 # Configure Apache vhosts.
 - include_tasks: "configure-{{ ansible_os_family }}.yml"
-  static: no
